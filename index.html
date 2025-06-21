@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Logistik MAPALA MATRAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F6F4; /* Light beige/cream background */
+        }
+        .slide {
+            display: none;
+        }
+        .slide.active {
+            display: block;
+        }
+        .btn-nav {
+            background-color: #6C7A89; /* Muted blue-grey */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-nav:hover:not(:disabled) {
+            background-color: #4A586B; /* Darker blue-grey */
+        }
+        .btn-nav:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .text-accent {
+            color: #9C9A9C; /* Subtle grey accent */
+        }
+        .logo{
+        margin: auto;
+        width: 150px;
+        align-content: center;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl w-full bg-white rounded-lg shadow-xl p-6 sm:p-8 lg:p-10 flex flex-col gap-6">
+
+        <!-- Header -->
+        <header class="text-center pb-4 border-b border-gray-200">
+            <a><img src="images/matras new logo.png" class="logo"></a>
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Manajemen Logistik MAPALA MATRAS</h1>
+            <p class="text-xl sm:text-2xl text-accent">[Danendra Raja MS-026-21-CKI]</p>
+            <p id="slide-indicator" class="text-md sm:text-lg text-accent mt-2">1 / 13</p>
+        </header>
+
+        <!-- Slide Container -->
+        <div id="slides-container" class="relative min-h-[400px] flex items-center justify-center text-gray-700">
+            
+            <!-- Slide 1: Judul -->
+            <div id="slide-1" class="slide text-center p-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">MANAJEMEN LOGISTIK: KUNCI SUKSES EKSPEDISI MAPALA</h2>
+                <p class="text-6xl mt-8">🏞️🏕️🎒</p>
+                <p class="text-sm mt-4 text-gray-500">Melintas Aral Tanpa Batas</p>
+            </div>
+
+            <!-- Slide 2: Mengapa Manajemen Logistik Penting? -->
+            <div id="slide-2" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Mengapa Manajemen Logistik Penting?</h2>
+                <p class="mb-4 text-lg">Manajemen Logistik adalah kunci dari sebuah perjalanan.</p>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li class="mb-2">Manajemen Logistik = Jantung Setiap Kegiatan di Alam Bebas</li>
+                    <li class="mb-2">Penentu Keberhasilan, Keamanan, & Kenyamanan</li>
+                    <li class="mb-2">Mencegah Risiko: Kekurangan air/makanan, peralatan rusak, dll.</li>
+                    <li>Bukan Hanya "Soal Barang", tapi: Perencanaan, Pengadaan, Penyimpanan, Pergerakan, Pengawasan.</li>
+                </ul>
+                <p class="text-6xl mt-8">🧭🎒</p>
+                <p class="text-sm mt-4 text-gray-500">Setiap detail diperhitungkan.</p>
+            </div>
+
+            <!-- Slide 3: Apa Itu Manajemen? -->
+            <div id="slide-3" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Apa Itu Manajemen?</h2>
+                <p class="mb-4 text-lg font-bold">"KBBI : penggunaan sumber daya secara efektif untuk mencapai sasaran / pimpinan yang bertanggung jawab atas jalannya perusahaan dan organisasi;</p>
+                <p class="mb-4 text-lg">Seni/proses mengatur, mengelola, & mengoptimalkan sumber daya untuk mencapai tujuan tertentu.</p>
+                <h3 class="text-xl font-bold mb-2">Kata Kunci:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li class="mb-2">Mengatur: Menetapkan peran & struktur.</li>
+                    <li class="mb-2">Mengelola: Melaksanakan rencana & mengawasi.</li>
+                    <li>Mengoptimalkan: Memanfaatkan sumber daya (waktu, tenaga, alat) seefisien mungkin.</li>
+                </ul>
+                <p class="mt-4 text-lg italic">Contoh: Manajemen waktu, tim, & biaya pendakian agar lancar & aman.</p>
+                <p class="text-6xl mt-8">🤝🗓️💰</p>
+                <p class="text-sm mt-4 text-gray-500">Kolaborasi dan perencanaan.</p>
+            </div>
+
+            <!-- Slide 4: Apa Itu Logistik? -->
+            <div id="slide-4" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Apa Itu Logistik?</h2>
+                <p class="mb-4 text-lg font-bold">"KBBI : 1 pengadaan, perawatan, distribusi, dan penyediaan (untuk mengganti) perlengkapan, perbekalan, dan ketenagaan; 2 segi ilmu kemiliteran mengenai pengadaan, perawatan, dan transportasi peralatan, pembekalan, dan pasukan; 3 Mil segala persiapan dan tindakan yang diperlukan untuk memperlengkapi pasukan dengan alat dan perbekalan agar dpt bertempur dalam kondisi yang paling baik dan menguntungkan; 4 penanganan seluk-beluk operasi militer</p>
+                <p class="mb-4 text-lg">Ilmu/seni pergerakan & penyimpanan barang, informasi, bahkan orang, secara efektif.</p>
+                <h3 class="text-xl font-bold mb-2">Kata Kunci:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li class="mb-2">Pergerakan: Barang diangkut, informasi disampaikan.</li>
+                    <li class="mb-2">Penyimpanan: Peralatan di *basecamp*, makanan di ransel.</li>
+                    <li>Efektif: Mencapai tujuan.</li>
+                </ul>
+                <p class="mt-4 text-lg italic">Contoh MAPALA: Memastikan tenda, *sleeping bag*, makanan, air siap pakai di lapangan.</p>
+                <p class="text-6xl mt-8">📦🚚💧</p>
+                <p class="text-sm mt-4 text-gray-500">Semua harus tersedia di tempat dan waktu yang tepat.</p>
+            </div>
+
+            <!-- Slide 5: Manajemen Logistik (Secara Umum) -->
+            <div id="slide-5" class="slide p-4 text-center">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Manajemen Logistik</h2>
+                <p class="mb-4 text-lg">Ketika kedua kata ini disatukan, terbentuklah sebuah proses penting.</p>
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Penggabungan Konsep:</h3>
+                <p class="text-xl leading-relaxed">
+                    <span class="font-bold">Manajemen Logistik =</span> Perencanaan, pelaksanaan, & pengendalian aliran + penyimpanan barang, jasa, & informasi.
+                </p>
+                <p class="text-lg mt-4 italic">
+                    Tujuan: Memenuhi kebutuhan secara efisien & efektif dari titik asal ke titik konsumsi.
+                </p>
+                <p class="text-6xl mt-8">⚙️📊📈</p>
+                <p class="text-sm mt-4 text-gray-500">Sistem yang terintegrasi untuk hasil optimal.</p>
+            </div>
+
+            <!-- Slide 6: Manajemen Logistik dalam Konteks MAPALA -->
+            <div id="slide-6" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Manajemen Logistik dalam Konteks MAPALA</h2>
+                <p class="mb-4 text-lg">Dalam konteks Mapala, manajemen logistik berarti kita merencanakan dengan matang apa saja yang perlu dibawa (makanan, air, tenda, obat-obatan), bagaimana cara mendapatkannya (membeli, meminjam), bagaimana mengemasnya, membawanya, mendistribusikannya selama perjalanan, hingga bagaimana mengelola sampah dan sisanya. Tujuannya adalah agar semua kegiatan di alam bebas, entah itu pendakian, susur gua, arung jeram, atau konservasi, bisa berjalan lancar, aman, dan minim risiko karena semua kebutuhan sudah terpenuhi dan terkelola dengan baik.</p>
+                <h3 class="text-xl font-bold mb-2">Kata kunci:</h3>
+                <p class="mb-4 text-lg leading-relaxed">
+                    Proses merencanakan, mendapatkan, mengemas, membawa, mendistribusikan, & mengelola kebutuhan kegiatan alam bebas.
+                </p>
+                <h3 class="text-xl font-bold mb-2">Cakupan:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li class="mb-2">Makanan, air, tenda, obat-obatan.</li>
+                    <li class="mb-2">Peralatan, komunikasi.</li>
+                    <li>Hingga pengelolaan sampah.</li>
+                </ul>
+                <p class="mt-4 text-lg italic">Tujuan: Kegiatan lancar, aman, minim risiko, & semua kebutuhan terpenuhi.</p>
+                <p class="mt-4 text-lg italic">Analogi Sederhana: Memasak nasi goreng (memastikan bahan & alat tersedia siap pakai).</p>
+                <p class="text-6xl mt-8">🗺️⛺🍲</p>
+                <p class="text-sm mt-4 text-gray-500">Setiap perjalanan butuh persiapan yang tepat.</p>
+            </div>
+
+            <!-- Slide 7: Ruang Lingkup Manajemen Logistik -->
+            <div id="slide-7" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Ruang Lingkup Manajemen Logistik</h2>
+                <p class="mb-4 text-lg">Manajemen logistik memiliki beberapa tahapan penting yang harus diperhatikan.</p>
+                <ul class="list-decimal list-inside text-lg leading-relaxed">
+                    <li class="mb-2 font-semibold">Perencanaan Kebutuhan: <span class="font-normal">Apa saja yang dibutuhkan? (Pakaian, makanan, alat survival, navigasi, P3K, komunikasi, dll.)</span></li>
+                    <li class="mb-2 font-semibold">Pengadaan/Pembelian: <span class="font-normal">Bagaimana mendapatkannya secara efisien? (Harga, kualitas, kuantitas)</span></li>
+                    <li class="mb-2 font-semibold">Penyimpanan/Pengemasan: <span class="font-normal">Cara menyimpan & mengemas agar aman, ringkas, mudah diakses.</span></li>
+                    <li class="mb-2 font-semibold">Transportasi/Pergerakan: <span class="font-normal">Bagaimana membawa barang? (Pemilihan *carrier*, teknik *packing*, distribusi beban)</span></li>
+                    <li class="mb-2 font-semibold">Distribusi/Penggunaan: <span class="font-normal">Bagaimana barang didistribusikan & digunakan selama kegiatan?</span></li>
+                    <li class="mb-2 font-semibold">Evaluasi & Pelaporan: <span class="font-normal">Belajar dari setiap pengalaman logistik.</span></li>
+                </ul>
+                <p class="text-6xl mt-8">✔️📝📦</p>
+                <p class="text-sm mt-4 text-gray-500">Langkah demi langkah menuju keberhasilan.</p>
+            </div>
+
+            <!-- Slide 8: Prinsip 5R Logistik -->
+            <div id="slide-8" class="slide p-4 text-center">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Prinsip 5R Logistik</h2>
+                <p class="mb-4 text-lg">Lima prinsip dasar yang menjadi kunci keberhasilan dalam manajemen logistik.</p>
+                <ul class="list-none text-xl sm:text-2xl leading-relaxed font-bold">
+                    <li class="mb-3 text-emerald-700">✅ Right Product: <span class="font-normal text-gray-700">Barang yang tepat.</span></li>
+                    <li class="mb-3 text-teal-700">✅ Right Quantity: <span class="font-normal text-gray-700">Jumlah yang tepat.</span></li>
+                    <li class="mb-3 text-blue-700">✅ Right Condition: <span class="font-normal text-gray-700">Kondisi yang tepat.</span></li>
+                    <li class="mb-3 text-indigo-700">✅ Right Place: <span class="font-normal text-gray-700">Tempat yang tepat.</span></li>
+                    <li class="mb-3 text-purple-700">✅ Right Time: <span class="font-normal text-gray-700">Waktu yang tepat.</span></li>
+                </ul>
+                <p class="text-6xl mt-8">⭐⭐⭐⭐⭐</p>
+                <p class="text-sm mt-4 text-gray-500">Presisi dalam setiap aspek.</p>
+            </div>
+
+            <!-- Slide 9: Aspek Praktis: Perencanaan & Pangan -->
+            <div id="slide-9" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Aspek Praktis: Perencanaan & Pangan</h2>
+                <p class="mb-4 text-lg">Bagaimana kita menerapkan teori logistik ini di lapangan, dimulai dari persiapan paling dasar.</p>
+                <h3 class="text-xl font-bold mb-2">Penyusunan Daftar Kebutuhan (Checklist):</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                    <li class="mb-2">Detail & spesifik per individu/kelompok.</li>
+                    <li>Pertimbangkan: durasi, lokasi, cuaca, jenis kegiatan, jumlah peserta.</li>
+                </ul>
+                <h3 class="text-xl font-bold mb-2">Estimasi Kebutuhan Pangan & Air:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li class="mb-2">Hitung kalori, nutrisi, & air per hari/orang.</li>
+                    <li class="mb-2">Tips Makanan: ringan, padat energi, tahan lama, mudah dimasak.</li>
+                    <li>Strategi Air: sumber, filtrasi, penjernihan.</li>
+                </ul>
+                <p class="text-6xl mt-8">📋🍎💧</p>
+                <p class="text-sm mt-4 text-gray-500">Setiap tetes air dan setiap kalori berarti.</p>
+            </div>
+
+            <!-- Slide 10: Aspek Praktis: Peralatan & Sampah -->
+            <div id="slide-10" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Aspek Praktis: Peralatan & Sampah</h2>
+                <p class="mb-4 text-lg">Selain pangan, pengelolaan peralatan dan sampah adalah bagian tak terpisahkan dari logistik yang bertanggung jawab.</p>
+                <h3 class="text-xl font-bold mb-2">Pengelolaan Peralatan:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                    <li class="mb-2">Pribadi vs. Kelompok.</li>
+                    <li class="mb-2">Teknik *Packing* Ransel: distribusi berat, barang penting di atas.</li>
+                    <li>Perawatan di Lapangan: hindari kerusakan, jaga kebersihan.</li>
+                </ul>
+                <h3 class="text-xl font-bold mb-2">Manajemen Sampah (Leave No Trace):</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li class="mb-2">Prinsip *Carry In, Carry Out*.</li>
+                    <li>Teknik *packing* sampah kembali.</li>
+                </ul>
+                <p class="text-6xl mt-8">🏕️🗑️</p>
+                <p class="text-sm mt-4 text-gray-500">Jaga alam, jaga peralatan.</p>
+            </div>
+
+            <!-- Slide 11: Aspek Praktis: Keamanan & Darurat -->
+            <div id="slide-11" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Aspek Praktis: Keamanan & Darurat</h2>
+                <p class="mb-4 text-lg">Kesiapan untuk kondisi tak terduga adalah bukti logistik yang matang.</p>
+                <h3 class="text-xl font-bold mb-2">Logistik P3K & Obat-obatan:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                    <li>Kotak P3K standar & obat pribadi.</li>
+                </ul>
+                <h3 class="text-xl font-bold mb-2">Logistik Komunikasi:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                    <li>Radio HT, *satellite phone*, *power bank*.</li>
+                </ul>
+                <h3 class="text-xl font-bold mb-2">Logistik Perlengkapan Darurat:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li>Peralatan api, bivak darurat.</li>
+                </ul>
+                <p class="text-6xl mt-8">⚕️📻🔥</p>
+                <p class="text-sm mt-4 text-gray-500">Selalu siap siaga.</p>
+            </div>
+
+            <!-- Slide 12: Studi Kasus & Diskusi -->
+            <div id="slide-12" class="slide p-4">
+                <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Studi Kasus & Diskusi</h2>
+                <p class="mb-4 text-lg">Mari belajar dari pengalaman! Baik keberhasilan maupun kegagalan adalah pelajaran berharga.</p>
+                <h3 class="text-xl font-bold mb-2">Bagikan Pengalaman:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed mb-4">
+                    <li class="mb-2">Ceritakan pengalaman logistik pribadi (sukses/gagal).</li>
+                    <li>Ajak peserta berbagi pengalaman singkat.</li>
+                </ul>
+                <h3 class="text-xl font-bold mb-2">Q&A:</h3>
+                <ul class="list-disc list-inside text-lg leading-relaxed">
+                    <li>Buka sesi tanya jawab & diskusi aktif.</li>
+                </ul>
+                <p class="text-6xl mt-8">🗣️🧠</p>
+                <p class="text-sm mt-4 text-gray-500">Diskusi membangun pemahaman.</p>
+            </div>
+
+            <!-- Slide 13: Penutup -->
+            <div id="slide-13" class="slide text-center p-4">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Terima Kasih!</h2>
+                <p class="mb-4 text-xl sm:text-2xl leading-relaxed">
+                    <span class="font-bold">Kesimpulan:</span> Manajemen logistik = Fondasi setiap kegiatan di alam bebas. Perencanaan matang = Keamanan & keberhasilan.
+                </p>
+                <p class="text-xl sm:text-2xl font-bold mt-8 text-emerald-800">
+                    "Mari selalu utamakan perencanaan logistik demi petualangan yang aman & berkesan!"
+                </p>
+                <p class="text-6xl mt-8">🏔️👏</p>
+                <p class="text-sm mt-4 text-gray-500">Sampai jumpa di petualangan berikutnya!</p>
+            </div>
+
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between mt-6 pt-4 border-t border-gray-200">
+            <button id="prev-slide" class="btn-nav flex items-center justify-center gap-2">
+                &larr; Sebelumnya
+            </button>
+            <button id="next-slide" class="btn-nav flex items-center justify-center gap-2">
+                Selanjutnya &rarr;
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const slideIndicator = document.getElementById('slide-indicator');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+
+        let currentSlideIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateSlideIndicator() {
+            slideIndicator.textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            currentSlideIndex = index;
+            updateSlideIndicator();
+            prevBtn.disabled = currentSlideIndex === 0;
+            nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlideIndex > 0) {
+                showSlide(currentSlideIndex - 1);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlideIndex < totalSlides - 1) {
+                showSlide(currentSlideIndex + 1);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(0);
+        });
+    </script>
+</body>
+</html>
